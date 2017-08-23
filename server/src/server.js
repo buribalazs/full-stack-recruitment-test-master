@@ -1,5 +1,6 @@
 require('isomorphic-fetch');
 require('es6-promise').polyfill();
+let mock = require('../tmp/res.json');
 
 const express = require('express');
 const app = express();
@@ -24,11 +25,16 @@ app.get('/', (req, res) => {
   http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart
 */
 app.get('/api/search', (req, res) => {
-
-  api.livePricing.search({
-    // TODO client to provide params
-    // check in api docs what client should provide
-  })
+  // let query = req.query;
+  // api.livePricing.search({
+  //   adults: query.adults,
+  //   'class': query.cabinclass,
+  //   toPlace: query.destinationplace,
+  //   toDate: query.inbounddate,
+  //   fromPlace: query.originplace,
+  //   fromDate: query.outbounddate
+  // })
+  Promise.resolve(mock)
   .then((results) => {
     // TODO - a better format for displaying results to the client
     console.log('TODO: transform results for consumption by client');
