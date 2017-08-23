@@ -27,14 +27,11 @@ function startQuery (params) {
     })
     .then((results) => {
       console.log('TODO: something with these results:');
-      console.log(results);
+      console.log(results.Itineraries.length);
     })
     .catch(console.error);
 }
 
-// example api use
-// TODO put this call somewhere sensible
-// TODO send parameters to server - check out `server/src/api/server.js`
 startQuery({
   originplace: 'EDI',
   destinationplace: 'LHR',
